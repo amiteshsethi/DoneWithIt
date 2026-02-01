@@ -1,5 +1,5 @@
 import React from "react";
-import { ImageBackground, StyleSheet, View, Text } from "react-native";
+import { ImageBackground, StyleSheet, View, Text, Pressable } from "react-native";
 
 export default function WelcomeScreen() {
   return (
@@ -9,12 +9,13 @@ export default function WelcomeScreen() {
         <Text style={styles.logoSubText}>Getting officailly done with old stuff</Text>
       </View>
 
-      <View style={styles.loginButton}>
+      <Pressable style={styles.loginButton} onPress={() => console.log("Login pressed")}>
         <Text>Log In</Text>
-      </View>
-      <View style={styles.registerButton}>
+      </Pressable>
+
+      <Pressable style={styles.registerButton} onPress={() => console.log("Register pressed")}>
         <Text>Register</Text>
-      </View>
+      </Pressable>
     </ImageBackground>
   );
 }

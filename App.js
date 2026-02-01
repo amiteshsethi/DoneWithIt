@@ -1,47 +1,50 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, TouchableNativeFeedback, TouchableOpacity, TouchableHighlight } from "react-native";
-import { Button } from "react-native-web";
-import { useState } from "react";
-
+import { StyleSheet } from "react-native";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
 export default function App() {
-  const [imageUrl, setImageUrl] = useState("https://picsum.photos/200/300?random=1");
-  const [isButtonPressed, setIsButtonPressed] = useState(false);
-
-
-  const handleGenerateImage = () => {
-    setIsButtonPressed(true);
-    setImageUrl(`https://picsum.photos/200/300?random=${Math.random()}`);
-  };
-
-  return (
-    <View style={styles.container}>
-      <Text>Hello to the World of React Native!</Text>
-
-      {isButtonPressed && (
-      <TouchableOpacity 
-        onPress={() => setIsButtonPressed(false)}
-      >
-        <Image source={{ uri: imageUrl }} style={{ width: 300, height: 300 }} />
-      </TouchableOpacity>
-      )}
-
-      <Button color="orange" title="Generate Image" onPress={handleGenerateImage}/>
-{/* 
-      <TouchableHighlight 
-        onPress={() => console.log("Image tapped!")}
-      >
-        <Image source={{ uri: "https://picsum.photos/200/300" }} style={{ width: 300, height: 300 }} />
-      </TouchableHighlight> */}
-      <StatusBar style="auto" />
-    </View>
-  );
+  return <WelcomeScreen />;
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  heading: {
+    fontSize: 32,
+    fontWeight: "bold",
+    marginBottom: 4,
+    color: "#fff",
+  },
+
+  subHeading: {
+    fontSize: 14,
+    color: "#666",
+    marginBottom: 20,
+  },
+
+  image: {
+    width: 300,
+    height: 300,
+    borderRadius: 12,
+    marginBottom: 20,
+  },
+
+  buttonRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+  },
+
+  downloadButton: {
+    padding: 10,
+    borderRadius: 8,
+    backgroundColor: "#eee",
+  },
+
+  downloadIcon: {
+    fontSize: 18,
   },
 });

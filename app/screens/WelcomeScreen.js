@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageBackground, StyleSheet, View, Text, Pressable } from "react-native";
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground style={styles.background} source={require("../assets/rrrrr.webp")}>
       <View style={styles.logoContainer}>
@@ -9,11 +9,11 @@ export default function WelcomeScreen() {
         <Text style={styles.logoSubText}>Getting officailly done with old stuff</Text>
       </View>
 
-      <Pressable style={styles.loginButton} onPress={() => console.log("Login pressed")}>
+      <Pressable style={styles.loginButton} onPress={() => navigation.navigate("Login")}>
         <Text>Log In</Text>
       </Pressable>
 
-      <Pressable style={styles.registerButton} onPress={() => console.log("Register pressed")}>
+      <Pressable style={styles.registerButton} onPress={() => navigation.navigate("Register")}>
         <Text>Register</Text>
       </Pressable>
     </ImageBackground>
